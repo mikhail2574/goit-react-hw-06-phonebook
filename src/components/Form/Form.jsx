@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React from 'react';
 import styles from './Form.module.css';
 import Result from 'components/Result/Result';
 import Filter from 'components/Filter/Filter';
