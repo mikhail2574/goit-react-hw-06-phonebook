@@ -4,7 +4,7 @@ import Result from 'components/Result/Result';
 import Filter from 'components/Filter/Filter';
 import { nanoid } from 'nanoid';
 import Notiflix from 'notiflix';
-import { add } from 'components/redux/counter/actions';
+import { add } from 'redux/counter/actions';
 import { useSelector, useDispatch } from 'react-redux';
 
 const Form = () => {

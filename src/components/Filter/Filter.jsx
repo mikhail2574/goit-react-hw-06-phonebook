@@ -1,6 +1,6 @@
 import styles from './Filter.module.css';
 import PropTypes from 'prop-types';
-import { filter } from 'components/redux/counter/actions';
+import { filter } from 'redux/counter/actions';
 
 const Filter = ({ dispatch }) => {
   const searchFocus = () => {

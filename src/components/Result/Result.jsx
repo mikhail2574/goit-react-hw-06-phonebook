@@ -1,6 +1,6 @@
 import styles from './Result.module.css';
 import PropTypes from 'prop-types';
-import { remove } from 'components/redux/counter/actions';
+import { remove } from 'redux/counter/actions';
 
 const Result = ({ data, dispatch }) => {
   const { id, name, number } = data;
