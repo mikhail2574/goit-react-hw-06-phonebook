@@ -1,8 +1,10 @@
 import styles from './Result.module.css';
 import PropTypes from 'prop-types';
 import { remove } from 'redux/counter/actions';
+import { useDispatch } from 'react-redux';
 
-const Result = ({ data, dispatch }) => {
+const Result = ({ data }) => {
+  const dispatch = useDispatch();
   const { id, name, number } = data;
   return (
     <li className={styles.card}>

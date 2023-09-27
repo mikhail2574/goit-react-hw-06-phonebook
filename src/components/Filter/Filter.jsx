@@ -1,8 +1,10 @@
 import styles from './Filter.module.css';
 import PropTypes from 'prop-types';
 import { filter } from 'redux/counter/actions';
+import { useDispatch } from 'react-redux';
 
-const Filter = ({ dispatch }) => {
+const Filter = () => {
+  const dispatch = useDispatch();
   const searchFocus = () => {
     document.querySelector('form').style.display = 'none';
   };

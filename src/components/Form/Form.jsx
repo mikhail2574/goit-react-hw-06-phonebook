@@ -57,15 +57,11 @@ const Form = () => {
           Add contact
         </button>
       </form>
-      <Filter dispatch={dispatch} />
+      <Filter />
       <ul className={styles.gallery}>
         {filtered === '100'
-          ? items.map(item => (
-              <Result data={item} key={item.id} dispatch={dispatch} />
-            ))
-          : filtered.map(item => (
-              <Result data={item} key={item.id} dispatch={dispatch} />
-            ))}
+          ? items.map(item => <Result data={item} key={item.id} />)
+          : filtered.map(item => <Result data={item} key={item.id} />)}
       </ul>
     </>
   );
