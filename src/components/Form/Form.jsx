@@ -9,7 +9,6 @@ import { useSelector, useDispatch } from 'react-redux';
 
 const Form = () => {
   const items = useSelector(state => state.item);
-  const filtered = useSelector(state => state.filter);
   const dispatch = useDispatch();
 
   const handleSubmit = evt => {
@@ -59,9 +58,9 @@ const Form = () => {
       </form>
       <Filter />
       <ul className={styles.gallery}>
-        {filtered === '100'
-          ? items.map(item => <Result data={item} key={item.id} />)
-          : filtered.map(item => <Result data={item} key={item.id} />)}
+        {items.map(item => (
+          <Result data={item} key={item.id} />
+        ))}
       </ul>
     </>
   );

@@ -1,6 +1,6 @@
 import styles from './Filter.module.css';
 import PropTypes from 'prop-types';
-import { filterItems } from '../../redux/counter/filterSlice';
+import { filterItems } from '../../redux/counter/itemSlice';
 import { useDispatch } from 'react-redux';
 
 const Filter = () => {
@@ -12,7 +12,7 @@ const Filter = () => {
     document.querySelector('form').style.display = 'flex';
   };
   function filterItem(e) {
-    dispatch(filterItems({ q: e.target.value }));
+    return dispatch(filterItems({ q: e.target.value }));
   }
 
   return (
