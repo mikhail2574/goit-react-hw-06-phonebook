@@ -25,7 +25,6 @@ const Result = ({ data }) => {
 
 Result.propTypes = {
   data: PropTypes.object,
-  deleteItem: PropTypes.func,
 };
 
 export default Result;

@@ -1,6 +1,5 @@
 import React from 'react';
 import styles from './Filter.module.css';
-import PropTypes from 'prop-types';
 import { filterItems } from '../../redux/counter/itemSlice';
 import { useDispatch } from 'react-redux';
 
@@ -32,10 +31,6 @@ const Filter = () => {
       />
     </div>
   );
-};
-
-Filter.propTypes = {
-  filterItem: PropTypes.func,
 };
 
 export default Filter;
