@@ -8,8 +8,8 @@ import { addItem } from '../../redux/counter/itemSlice';
 import { useSelector, useDispatch } from 'react-redux';
 
 const Form = () => {
-  const items = useSelector(state => state.items);
-  const filtered = useSelector(state => state.filtered);
+  const items = useSelector(state => state.item);
+  const filtered = useSelector(state => state.filter);
   const dispatch = useDispatch();
 
   const handleSubmit = evt => {

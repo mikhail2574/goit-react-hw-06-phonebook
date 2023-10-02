@@ -12,7 +12,7 @@ const Filter = () => {
     document.querySelector('form').style.display = 'flex';
   };
   function filterItem(e) {
-    dispatch(filterItems(e.target.value));
+    dispatch(filterItems({ q: e.target.value }));
   }
 
   return (
@@ -22,7 +22,7 @@ const Filter = () => {
         className={styles.inputSearch}
         type="text"
         name="search"
-        onInput={filterItem}
+        onChange={filterItem}
         onFocus={searchFocus}
         onBlur={searchOffFocus}
       />
