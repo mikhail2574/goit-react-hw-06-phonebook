@@ -4,7 +4,7 @@ import Result from 'components/Result/Result';
 import Filter from 'components/Filter/Filter';
 import { nanoid } from 'nanoid';
 import Notiflix from 'notiflix';
-import { add } from 'redux/counter/actions';
+import { addItem } from '../../redux/counter/itemSlice';
 import { useSelector, useDispatch } from 'react-redux';
 
 const Form = () => {
@@ -26,7 +26,7 @@ const Form = () => {
       Notiflix.Notify.failure('You should take another name');
       return;
     } else {
-      dispatch(add(contact));
+      dispatch(addItem(contact));
       evt.target.elements.name.value = '';
       evt.target.elements.number.value = '';
     }
