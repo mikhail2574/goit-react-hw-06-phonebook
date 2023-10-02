@@ -1,19 +1,23 @@
+import React from 'react';
 import styles from './Filter.module.css';
 import PropTypes from 'prop-types';
 import { filterItems } from '../../redux/counter/itemSlice';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 const Filter = () => {
   const dispatch = useDispatch();
+
   const searchFocus = () => {
     document.querySelector('form').style.display = 'none';
   };
+
   const searchOffFocus = () => {
     document.querySelector('form').style.display = 'flex';
   };
-  function filterItem(e) {
-    return dispatch(filterItems({ q: e.target.value }));
-  }
+
+  const filterItem = e => {
+    return dispatch(filterItems({ q: e.target.value })); // Вызываем экшен для фильтрации
+  };
 
   return (
     <div className={styles.search}>

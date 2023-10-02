@@ -2,30 +2,34 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const itemSlice = createSlice({
   name: 'items',
-  initialState: [],
+  initialState: {
+    allItems: [],
+    filteredItems: [],
+  },
   reducers: {
-    addItem: {
-      reducer: (state, action) => {
-        state.push(action.payload);
-      },
-      //   prepare(items) {
-      //     return {
-      //       payload: {
-      //         items,
-      //       },
-      //     };
-      //   },
+    addItem: (state, action) => {
+      state.allItems.push(action.payload);
+      state.filteredItems.push(action.payload);
     },
     removeItem: (state, action) => {
-      return (state = state.filter(contact => contact.id !== action.payload));
+      state.allItems = state.allItems.filter(
+        contact => contact.id !== action.payload
+      );
+      state.filteredItems = state.filteredItems.filter(
+        contact => contact.id !== action.payload
+      );
     },
     filterItems: (state, action) => {
-      console.log(state);
-      return state.filter(contact => contact.name.includes(action.payload.q));
+      if (action.payload && action.payload.q) {
+        state.filteredItems = state.allItems.filter(contact =>
+          contact.name.includes(action.payload.q)
+        );
+      } else {
+        state.filteredItems = state.allItems;
+      }
     },
   },
 });
 
 export const { addItem, removeItem, filterItems } = itemSlice.actions;
 export const itemReducer = itemSlice.reducer;
-export const selectItems = state => state.items; // Селектор для получения items

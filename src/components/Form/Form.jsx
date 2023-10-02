@@ -4,13 +4,14 @@ import Result from 'components/Result/Result';
 import Filter from 'components/Filter/Filter';
 import { nanoid } from 'nanoid';
 import Notiflix from 'notiflix';
-import { addItem } from '../../redux/counter/itemSlice';
+import { addItem, filterItems } from '../../redux/counter/itemSlice';
 import { useSelector, useDispatch } from 'react-redux';
 
 const Form = () => {
-  const items = useSelector(state => state.item);
+  const filterItems = useSelector(state => state.item.filteredItems);
+  const items = useSelector(state => state.item.allItems);
   const dispatch = useDispatch();
-
+  // console.log(items);
   const handleSubmit = evt => {
     evt.preventDefault();
     const contact = {
@@ -58,7 +59,7 @@ const Form = () => {
       </form>
       <Filter />
       <ul className={styles.gallery}>
-        {items.map(item => (
+        {filterItems.map(item => (
           <Result data={item} key={item.id} />
         ))}
       </ul>
