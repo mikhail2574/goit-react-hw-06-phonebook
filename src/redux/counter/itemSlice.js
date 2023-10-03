@@ -22,12 +22,12 @@ const itemSlice = createSlice({
         contact => contact.id !== action.payload
       );
     },
-    filterItems: state => {
-      if (state.q) {
-        return state.allItems.filter(contact => contact.name.includes(state.q));
-      } else {
-        return state.allItems;
-      }
+    // filterItems: state => {
+    //   if (state.q) {
+    //     return state.allItems.filter(contact => contact.name.includes(state.q));
+    //   } else {
+    //     return state.allItems;
+    //   }
     },
   },
 });
