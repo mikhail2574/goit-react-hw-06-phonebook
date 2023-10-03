@@ -4,9 +4,12 @@ const itemSlice = createSlice({
   name: 'items',
   initialState: {
     allItems: [],
-    filteredItems: [],
+    q: '',
   },
   reducers: {
+    setQ: (state, action) => {
+      state.q = action.payload; // action to set q
+    },
     addItem: (state, action) => {
       state.allItems.push(action.payload);
       state.filteredItems.push(action.payload);
@@ -19,17 +22,15 @@ const itemSlice = createSlice({
         contact => contact.id !== action.payload
       );
     },
-    filterItems: (state, action) => {
-      if (action.payload && action.payload.q) {
-        state.filteredItems = state.allItems.filter(contact =>
-          contact.name.includes(action.payload.q)
-        );
+    filterItems: state => {
+      if (state.q) {
+        return state.allItems.filter(contact => contact.name.includes(state.q));
       } else {
-        state.filteredItems = state.allItems;
+        return state.allItems;
       }
     },
   },
 });
 
-export const { addItem, removeItem, filterItems } = itemSlice.actions;
+export const { addItem, removeItem, filterItems, setQ } = itemSlice.actions;
 export const itemReducer = itemSlice.reducer;

@@ -8,8 +8,8 @@ import { addItem } from '../../redux/counter/itemSlice';
 import { useSelector, useDispatch } from 'react-redux';
 
 const Form = () => {
-  const filterItems = useSelector(state => state.item.filteredItems);
   const items = useSelector(state => state.item.allItems);
+  const q = useSelector(state => state.item.q);
   const dispatch = useDispatch();
   // console.log(items);
   const handleSubmit = evt => {
@@ -32,6 +32,13 @@ const Form = () => {
     }
   };
 
+  function filterItems() {
+    if (q) {
+      return items.filter(contact => contact.name.includes(q));
+    } else {
+      return items;
+    }
+  }
   return (
     <>
       <form className={styles.form} onSubmit={handleSubmit}>
@@ -59,7 +66,7 @@ const Form = () => {
       </form>
       <Filter />
       <ul className={styles.gallery}>
-        {filterItems.map(item => (
+        {filterItems().map(item => (
           <Result data={item} key={item.id} />
         ))}
       </ul>
