@@ -28,9 +28,9 @@ const itemSlice = createSlice({
     //   } else {
     //     return state.allItems;
     //   }
-    },
+    // },
   },
 });
 
-export const { addItem, removeItem, filterItems, setQ } = itemSlice.actions;
+export const { addItem, removeItem, setQ } = itemSlice.actions;
 export const itemReducer = itemSlice.reducer;
